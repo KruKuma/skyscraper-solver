@@ -1,34 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   parse_input.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfurst <nfurst@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/04 09:54:47 by nfurst            #+#    #+#             */
-/*   Updated: 2026/07/04 10:56:43 by nfurst           ###   ########.fr       */
+/*   Created: 2026/07/04 10:37:50 by nfurst            #+#    #+#             */
+/*   Updated: 2026/07/04 10:58:04 by nfurst           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	print_error();
-int	parse_input(char *str, int views[16]);
-
-#include <stdio.h>
-
-int main(int argc, char *argv[])
+int	parse_input(char *str, int views[16])
 {
-	int grid[4][4];
-	int views[16];
+	int i;
+	int count;
 
-	if (argc != 2)
+	i = 0;
+	count = 0;
+	while (str[i] != '\0')
 	{
-		print_error();
-		return (1);
+		if (count >= 16)
+			return (0);
+		if (str[i] < '1' || str[i] >  '4')
+			return (0);
+		views[count] = str[i] - '0';
+		count++;
+		i++;
+		if (count < 16)
+		{
+			if (str[i] != ' ')
+				return (0);
+			i++;
+		}
+		if (count != 16)
+			return (0);
 	}
-	if (!parse_input(argv[1], views))
-	{
-		print_error();
-		return (1);
-	}
-	return (0);
+	return (1);
 }
