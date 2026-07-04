@@ -6,9 +6,11 @@
 /*   By: nfurst <nfurst@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/04 11:51:05 by nfurst            #+#    #+#             */
-/*   Updated: 2026/07/04 14:13:22 by nfurst           ###   ########.fr       */
+/*   Updated: 2026/07/04 14:49:06 by nfurst           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+int	check_all_views(int grid[4][4], int views[16]);
 
 int	is_valid_number(int grid[4][4], int row, int col, int nb)
 {
@@ -32,6 +34,8 @@ int	solve(int grid[4][4], int views[16], int pos)
 	int col;
 	int nb;
 
+	if (pos == 16)
+		return (check_all_views(grid, views));
 	row = pos / 4;
 	col = pos % 4;
 	nb = 1;
