@@ -44,6 +44,7 @@ int	check_row(int grid[4][4], int row, int left, int right)
 	}
 	if (count_visible(line) != left)
 		return (0);
+	i = 0;
 	while (i < 4)
 	{
 		line[i] = grid[row][3 - i];
@@ -67,6 +68,7 @@ int	check_col(int grid[4][4], int col, int top, int bottom)
 	}
 	if (count_visible(line) != top)
 		return (0);
+	i = 0;
 	while (i < 4)
 	{
 		line[i] = grid[3 - i][col];
