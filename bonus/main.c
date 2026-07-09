@@ -13,7 +13,7 @@
 void	print_error(void);
 void	print_grid(int grid[9][9]);
 int		parse_input(char *str, int views[36], int *size);
-int		init_grid(int grid[9][9]);
+int		init_grid(int grid[9][9], int size);
 int		solve(int grid[9][9], int views[36], int pos);
 
 int	main(int argc, char *argv[])
@@ -32,7 +32,7 @@ int	main(int argc, char *argv[])
 		print_error();
 		return (1);
 	}
-	init_grid(grid);
+	init_grid(grid, size);
 	if (!solve(grid, views, 0))
 	{
 		print_error();

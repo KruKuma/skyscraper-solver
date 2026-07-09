@@ -10,16 +10,16 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-void	init_grid(int grid[4][4])
+void	init_grid(int grid[9][9], int size)
 {
 	int	row;
 	int	col;
 
 	row = 0;
-	while (row < 4)
+	while (row < size)
 	{
 		col = 0;
-		while (col < 4)
+		while (col < size)
 		{
 			grid[row][col] = 0;
 			col++;
