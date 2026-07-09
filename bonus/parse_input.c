@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-int	parse_input(char *str, int views[16])
+int	parse_input(char *str, int views[36], int *size)
 {
 	int	i;
 	int	count;
@@ -19,21 +19,32 @@ int	parse_input(char *str, int views[16])
 	count = 0;
 	while (str[i] != '\0')
 	{
-		if (count >= 16)
+		if (count >= 36)
 			return (0);
-		if (str[i] < '1' || str[i] > '4')
+		if (str[i] < '1' || str[i] > '9')
 			return (0);
 		views[count] = str[i] - '0';
 		count++;
 		i++;
-		if (count < 16)
-		{
-			if (str[i] != ' ')
-				return (0);
-			i++;
-		}
+		if (str[i] != '\0')
+			return ;
+		if (str[i] != ' ')
+			return (0);
+		i++;
+		if (str[i] == '\0')
+			return (0);
 	}
-	if (count != 16)
+	if (count % 4 != 0)
 		return (0);
+	*size = count / 4;
+	if (*size < 4 || *size > 9)
+		return (0);
+	i = 0;
+	while (i < count)
+	{
+		if (views[i] > *size)
+			return (0);
+		i++;
+	}
 	return (1);
 }
