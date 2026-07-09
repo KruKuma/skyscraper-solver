@@ -26,8 +26,8 @@ int	parse_input(char *str, int views[36], int *size)
 		views[count] = str[i] - '0';
 		count++;
 		i++;
-		if (str[i] != '\0')
-			return ;
+		if (str[i] == '\0')
+			break ;
 		if (str[i] != ' ')
 			return (0);
 		i++;
