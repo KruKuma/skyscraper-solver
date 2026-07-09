@@ -1,4 +1,4 @@
-# skyscraper-game
+# skyscraper-solver
 
 42 Piscine Rush01 project.
 
